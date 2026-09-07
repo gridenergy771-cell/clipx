@@ -78,13 +78,13 @@ export function ActionRouteLink({
   size = "md",
   className,
   ...rest
-}: {
+}: React.ComponentProps<typeof Link> & {
   children: ReactNode;
   variant?: Variant;
   size?: keyof typeof sizes;
-} & LinkProps) {
+}) {
   return (
-    <Link className={cn(actionClass(variant, size), className)} {...rest}>
+    <Link className={cn(actionClass(variant, size), className as string)} {...rest}>
       <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
     </Link>
   );
