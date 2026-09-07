@@ -11,6 +11,11 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Ambient } from "@/components/Ambient";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { PageTransition } from "@/components/PageTransition";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/config/site";
 
 function NotFoundComponent() {
   return (
