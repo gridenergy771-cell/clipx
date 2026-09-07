@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Link, type LinkProps } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
 type Variant = "primary" | "outline" | "quiet";
