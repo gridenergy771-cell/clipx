@@ -1,6 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { ActionLink } from "@/components/ActionButton";
+import { ActionLink, ActionRouteLink } from "@/components/ActionButton";
 import { BrandLogo } from "@/components/BrandLogo";
 import { MediaFrame } from "@/components/MediaFrame";
 import { Reveal } from "@/components/Reveal";
@@ -75,11 +75,9 @@ function HomePage() {
                 <ActionLink href="#socialfi" size="lg">
                   Explore CLIPX <ArrowRight className="size-4" />
                 </ActionLink>
-                <Link to="/app" className="contents">
-                  <ActionLink href="/app" variant="outline" size="lg">
-                    Open App
-                  </ActionLink>
-                </Link>
+                <ActionRouteLink to="/app" variant="outline" size="lg">
+                  Open App
+                </ActionRouteLink>
               </div>
 
               <dl
@@ -266,9 +264,9 @@ function HomePage() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading eyebrow="Product preview" title="Inside CLIPX." />
           <Reveal delay={100}>
-            <ActionLink href="/app" variant="outline">
+            <ActionRouteLink to="/app" variant="outline">
               Open the demo <ArrowUpRight className="size-3.5" />
-            </ActionLink>
+            </ActionRouteLink>
           </Reveal>
         </div>
         <Reveal delay={120} className="mt-12">
@@ -323,12 +321,12 @@ function HomePage() {
             Content shouldn&apos;t disappear into the feed.
           </h2>
           <div className="mt-9 flex flex-wrap gap-3">
-            <ActionLink href="/app" size="lg">
+            <ActionRouteLink to="/app" size="lg">
               Open App <ArrowRight className="size-4" />
-            </ActionLink>
-            <ActionLink href="/about" variant="outline" size="lg">
+            </ActionRouteLink>
+            <ActionRouteLink to="/about" variant="outline" size="lg">
               Read the story
-            </ActionLink>
+            </ActionRouteLink>
           </div>
         </Reveal>
       </section>
