@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Link, type LinkProps } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
 type Variant = "primary" | "outline" | "quiet";
@@ -20,12 +21,9 @@ const variants: Record<Variant, string> = {
   quiet: "text-muted-foreground hover:text-foreground",
 };
 
-export type ActionButtonProps = {
-  children: ReactNode;
-  variant?: Variant;
-  size?: keyof typeof sizes;
-  className?: string;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+export function actionClass(variant: Variant = "primary", size: keyof typeof sizes = "md") {
+  return cn(base, sizes[size], variants[variant]);
+}
 
 export function ActionButton({
   children,
@@ -33,14 +31,19 @@ export function ActionButton({
   size = "md",
   className,
   ...rest
-}: ActionButtonProps) {
+}: {
+  children: ReactNode;
+  variant?: Variant;
+  size?: keyof typeof sizes;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <button className={cn(base, sizes[size], variants[variant], className)} {...rest}>
+    <button className={cn(actionClass(variant, size), className)} {...rest}>
       <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
     </button>
   );
 }
 
+/** External / hash links. */
 export function ActionLink({
   children,
   href,
@@ -55,16 +58,34 @@ export function ActionLink({
   external?: boolean;
   variant?: Variant;
   size?: keyof typeof sizes;
-  className?: string;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={cn(base, sizes[size], variants[variant], className)}
+      className={cn(actionClass(variant, size), className)}
       {...rest}
     >
       <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
     </a>
+  );
+}
+
+/** Internal router links. */
+export function ActionRouteLink({
+  children,
+  variant = "primary",
+  size = "md",
+  className,
+  ...rest
+}: {
+  children: ReactNode;
+  variant?: Variant;
+  size?: keyof typeof sizes;
+} & LinkProps) {
+  return (
+    <Link className={cn(actionClass(variant, size), className)} {...rest}>
+      <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
+    </Link>
   );
 }
