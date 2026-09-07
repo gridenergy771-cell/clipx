@@ -59,7 +59,7 @@ function AppPage() {
       <div className="mx-auto max-w-[84rem] px-5 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-[15rem_minmax(0,1fr)]">
           {/* Sidebar */}
-          <aside className="lg:sticky lg:top-24 lg:self-start">
+          <aside className="min-w-0 lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-2xl border border-border bg-sidebar p-4">
               <div className="hidden px-2 py-2 lg:block">
                 <BrandLogo size={26} />
