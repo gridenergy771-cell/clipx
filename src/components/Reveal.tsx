@@ -46,7 +46,7 @@ export function Reveal({ children, className, delay = 0, y = 24, as = "div" }: R
         transitionDelay: `${delay}ms`,
         opacity: shown ? 1 : 0,
         transform: shown ? "none" : `translate3d(0, ${y}px, 0)`,
-        filter: shown ? "blur(0px)" : "blur(6px)",
+        filter: shown ? "none" : "blur(6px)",
       }}
     >
       {children}

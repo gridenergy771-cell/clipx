@@ -19,11 +19,11 @@ export function PageTransition({ children }: { children: ReactNode }) {
   return (
     <div
       key={key}
-      className="transition-all duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+      className="relative z-10 transition-all duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "none" : "translate3d(0, 14px, 0)",
-        filter: visible ? "blur(0px)" : "blur(6px)",
+        filter: visible ? "none" : "blur(6px)",
       }}
     >
       {children}
