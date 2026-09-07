@@ -6,7 +6,7 @@ import { ARC_LABEL, CA, NAV_LINKS, RADARDEX_URL, TOKEN_SYMBOL, X_URL } from "@/c
 
 export function Footer() {
   return (
-    <footer className="relative mt-32 border-t border-border">
+    <footer className="relative z-10 mt-32 border-t border-border">
       <div className="mx-auto max-w-[80rem] px-5 py-14 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
