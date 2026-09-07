@@ -274,7 +274,7 @@
 }
 
 @utility rise-in {
-  animation: clipx-rise 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: clipx-rise 800ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
 @keyframes clipx-sweep {
